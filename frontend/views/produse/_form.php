@@ -33,8 +33,10 @@ use kartik\select2\Select2;
 
 
     <?= $form->field($model, 'produs_pret')->textInput() ?>
-
-    <?= $form->field($model, 'produs_is_active')->textInput() ?>
+    <?php
+    echo $form->field($model, 'produs_is_active')->dropDownList(
+        ['0' => 'Inactiv', '1' => 'Activ']
+    ); ?>
 
     <?= $form->field($model, 'produs_stock')->textInput() ?>
 
