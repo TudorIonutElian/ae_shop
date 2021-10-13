@@ -41,6 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions'=>function($model){
+            if($model->produs_stock == 0){
+                return ['class' => 'bg-danger text-white'];
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             [
@@ -55,6 +60,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'produs_stock',
 
             ['class' => 'yii\grid\ActionColumn'],
+            [
+                    'class' => 'yii\grid\DataColumn',
+                    'label' => 'OutOfStock',
+                    'format'=> 'raw',
+                    'value' => function($data){
+                        return Html::a('Stock 0', 'index.php?r=produse/outofstock&id='.$data->id.'', ['class' => 'btn btn-warning']);
+                    }
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

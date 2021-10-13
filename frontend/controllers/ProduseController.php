@@ -150,9 +150,23 @@ class ProduseController extends Controller
 
     public function actionAll()
     {
-        $produse = Produse::find()->all();
+        $produse = Produse::find()->where(['>', 'produs_stock', 0])->all();
         return $this->render('all', [
             'produse'   => $produse
         ]);
+    }
+
+    public function actionOutofstock($id){
+        $produs = Produse::findOne($id);
+        $produs->produs_stock = 0;
+
+        if($produs->save()){
+            try {
+                return $this->render('view', [
+                    'model' => $this->findModel($id)
+                ]);
+            } catch (NotFoundHttpException $e) {
+            }
+        }
     }
 }

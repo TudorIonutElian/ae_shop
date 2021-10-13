@@ -33,10 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'categorie_denumire',
             'categorie_is_active',
-
             [   'class' => 'yii\grid\ActionColumn',
                 'visible' =>  Yii::$app->user->can('creaza-categorii')
             ],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
         
     ]); ?>

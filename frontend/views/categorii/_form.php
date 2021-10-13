@@ -13,8 +13,10 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'categorie_denumire')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'categorie_is_active')->textInput() ?>
+    <?php
+    echo $form->field($model, 'categorie_is_active')->dropDownList(
+        ['0' => 'Inactiva', '1' => 'Activa']
+    ); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
