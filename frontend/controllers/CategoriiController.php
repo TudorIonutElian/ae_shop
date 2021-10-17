@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use app\models\Categorii;
 use app\models\CategoriiSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,16 @@ class CategoriiController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'acces' =>[
+                    'class' => AccessControl::class,
+                    'only' => ['create', 'update', 'delete'],
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'roles' => ['@']
+                        ]
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [

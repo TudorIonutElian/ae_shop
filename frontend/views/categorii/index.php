@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             [   'class' => 'yii\grid\ActionColumn',
                 'visible' =>  Yii::$app->user->can('creaza-categorii')
             ],
-            ['class' => 'yii\grid\ActionColumn'],
         ],
         
     ]); ?>

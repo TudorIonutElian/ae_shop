@@ -43,7 +43,19 @@ return [
         'cart' => [
             'class' => 'yz\shoppingcart\ShoppingCart',
             'cartId' => 'my_application_cart',
-        ]
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+//            'viewPath' => '@common\mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mailtrap.io',
+                'username' => '9cd7dc848e5bc1',
+                'password' => '38199a109df0e6',
+                'port' => '2525',
+                'encryption' => 'tls',
+            ],
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

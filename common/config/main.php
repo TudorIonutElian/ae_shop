@@ -9,7 +9,7 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'mail' => [
+        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
             'transport' => [

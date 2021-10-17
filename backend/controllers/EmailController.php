@@ -82,23 +82,23 @@ class EmailController extends Controller
                     $model->attachment->saveAs('attachments/'.$time.'.'.$model->attachment->getExtension());
                     $model->attachment = 'attachments/'.$time.'.'.$model->attachment->getExtension();
 
-                    if($model->attachment){
-                        $value = Yii::$app->mailer->compose()
-                            ->setFrom(['admin@aeshop.test' =>'Admin'])
-                            ->setTo($model->receiver_email)
-                            ->setSubject($model->subject)
-                            ->setHtmlBody($model->content)
-                            ->attach($model->attachment)
-                            ->send();
-                    }else{
-                        $value = Yii::$app->mailer->compose()
-                            ->setFrom(['admin@test.test' =>'Admin'])
-                            ->setTo($model->receiver_email)
-                            ->setSubject($model->subject)
-                            ->setHtmlBody($model->content)
-                            ->send();
-                    }
+                }
 
+                if($model->attachment){
+                    $value = Yii::$app->mailer->compose()
+                        ->setFrom(['admin@aeshop.test' =>'Admin'])
+                        ->setTo($model->receiver_email)
+                        ->setSubject($model->subject)
+                        ->setHtmlBody($model->content)
+                        ->attach($model->attachment)
+                        ->send();
+                }else{
+                    $value = Yii::$app->mailer->compose()
+                        ->setFrom(['admin@test.test' =>'Admin'])
+                        ->setTo($model->receiver_email)
+                        ->setSubject($model->subject)
+                        ->setHtmlBody($model->content)
+                        ->send();
                 }
 
 
