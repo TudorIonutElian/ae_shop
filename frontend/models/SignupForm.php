@@ -69,7 +69,7 @@ class SignupForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['html' => '@common/mail/emailVerify-html', 'text' => 'emailVerify-text'],
                 ['user' => $user]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])

@@ -1,10 +1,13 @@
 <?php
 
+
+use kartik\date\DatePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\Categorii;
 use kartik\select2\Select2;
+
 
 
 /* @var $this yii\web\View */
@@ -40,8 +43,22 @@ use kartik\select2\Select2;
         'type' => 'number'
     ]) ?>
 
+    <?=
+        $form->field($model, 'produs_created_date')->widget(\kartik\date\DatePicker::className(), [
+            'value' => date('yyyy-mm-d', strtotime('+1 days')),
+            'type' => 1,
+            'options' => [
+                    'placeholder' => false,
+            ],
+            'pluginOptions' => [
+                'format' => 'yyyy-mm-d',
+            ]
+        ]);
+
+    ?>
+
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success mt-2']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

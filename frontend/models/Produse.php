@@ -36,6 +36,7 @@ class Produse extends \yii\db\ActiveRecord
             [['produs_categorie', 'produs_is_active', 'produs_stock'], 'integer'],
             [['produs_pret'], 'number'],
             [['file'], 'file'],
+            [['produs_created_date'], 'safe'],
             [['produs_denumire', 'produs_imagine'], 'string', 'max' => 80],
         ];
     }
@@ -53,6 +54,7 @@ class Produse extends \yii\db\ActiveRecord
             'produs_pret' => 'Produs Pret',
             'produs_is_active' => 'Produs Is Active',
             'produs_stock' => 'Produs Stock',
+            'produs_created_date' => 'Data creare produs'
         ];
     }
 

@@ -26,16 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
 
-        Modal::begin([
-                //'header' => '<h4>Produse</h4>',
-                'id'    => 'modal',
-                'size'  => 'modal-md',
-        ]);
-        echo '<div id="modalContent"></div>';
+    Modal::begin([
+        //'header' => '<h4>Produse</h4>',
+        'id'    => 'modal',
+        'size'  => 'modal-md',
+    ]);
+    echo '<div id="modalContent"></div>';
 
-        Modal::end();
+    Modal::end();
     ?>
-
 
     <?php Pjax::begin(); ?>
     <?= GridView::widget([
