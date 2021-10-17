@@ -45,13 +45,13 @@ use kartik\select2\Select2;
 
     <?=
         $form->field($model, 'produs_created_date')->widget(\kartik\date\DatePicker::className(), [
-            'value' => date('yyyy-mm-d', strtotime('+1 days')),
+            'value' => date('yyyy-mm-dd', strtotime('+1 days')),
             'type' => 1,
             'options' => [
                     'placeholder' => false,
             ],
             'pluginOptions' => [
-                'format' => 'yyyy-mm-d',
+                'format' => 'yyyy-mm-dd',
             ]
         ]);
 

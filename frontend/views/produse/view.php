@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -33,8 +34,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attributes' => [
                     'id',
                     'produs_denumire',
-                    'produs_imagine',
-                    'produs_categorie',
+                    [
+                            'attribute' => 'produs_imagine',
+                            'format' => 'html',
+                            'value' => function($model){
+                                return  Html::a('Vezi imaginea', 'images/'.$model->produs_imagine) ;
+                            }
+                    ],
+                    [
+                            'attribute' => 'produs_categorie',
+                            'value' => function($model){
+                                $categorie = \app\models\Categorii::findOne($model->produs_categorie)->categorie_denumire;
+                                return $categorie;
+                            }
+                    ],
                     'produs_pret',
                     'produs_is_active',
                     'produs_stock',

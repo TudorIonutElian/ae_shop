@@ -52,8 +52,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'categorie.categorie_denumire'
             ],
             'produs_denumire',
-            'produs_imagine',
-            //'produs_categorie',
+            [
+                'attribute' => 'produs_imagine',
+                'format' => 'html',
+                'value' => function($model){
+                    return  Html::a($model->produs_imagine, 'images/'.$model->produs_imagine, ['target' => '_blank']) ;
+                }
+            ],
             'produs_pret',
             'produs_is_active',
             'produs_stock',
